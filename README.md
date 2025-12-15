@@ -6,6 +6,8 @@
 
 ---
 
+Project overview : https://youtu.be/qocjKuA5Ks8
+
 ## Abstract
 
 Grasp is an AI-powered educational tutoring system that automatically researches topics, extracts key concepts and relationships, and builds interactive knowledge graphs for visual learning. The system employs a multi-agent architecture using LangGraph with four specialized agents (Planner, Researcher, Graph Builder, Analyst) that work in sequence to process user queries. Students can either ask questions or upload PDF study materials, and the system generates comprehensive explanations grounded in a dynamically-built knowledge graph. 
