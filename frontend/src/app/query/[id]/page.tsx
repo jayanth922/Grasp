@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, RotateCw } from "lucide-react";
+import { ArrowLeft, Loader2, Network } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
 import { getSessionId } from "../../../lib/session";
+import GraphView from "../../../components/GraphView";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
@@ -24,48 +25,100 @@ export default function QueryResultPage() {
     const queryId = params.id as string;
 
     const [result, setResult] = useState<QueryResult | null>(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<string | null>(null);
+    const [status, setStatus] = useState<"processing" | "ready" | "error">("processing");
+    const [pollCount, setPollCount] = useState(0);
+
+    const fetchResult = useCallback(async () => {
+        try {
+            const sessionId = getSessionId();
+            const res = await fetch(`${API_URL}/api/history?session_id=${sessionId}`);
+            const history = await res.json();
+            const found = history.find((item: any) => item.id === queryId);
+
+            if (found) {
+                setResult(found);
+                setStatus("ready");
+                return true;
+            }
+            return false;
+        } catch (err) {
+            console.error("Failed to fetch result:", err);
+            return false;
+        }
+    }, [queryId]);
 
     useEffect(() => {
-        const fetchResult = async () => {
-            try {
-                const sessionId = getSessionId();
-                const res = await fetch(`${API_URL}/api/history?session_id=${sessionId}`);
-                const history = await res.json();
-                const found = history.find((item: any) => item.id === queryId);
+        let timeoutId: NodeJS.Timeout;
+        let currentPollCount = 0;
 
-                if (found) {
-                    setResult(found);
-                } else {
-                    setError("Query not found");
-                }
-            } catch (err) {
-                setError("Failed to load query result");
-            } finally {
-                setLoading(false);
+        const pollForResult = async () => {
+            const found = await fetchResult();
+            if (found) {
+                return;
+            }
+
+            currentPollCount++;
+            setPollCount(currentPollCount);
+
+            if (currentPollCount < 30) {
+                timeoutId = setTimeout(pollForResult, 2000);
+            } else {
+                setStatus("error");
             }
         };
 
-        fetchResult();
-    }, [queryId]);
+        pollForResult();
 
-    if (loading) {
+        return () => {
+            if (timeoutId) clearTimeout(timeoutId);
+        };
+    }, [fetchResult]);
+
+    if (status === "processing") {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
-                <div className="text-gray-500">Loading query result...</div>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="text-center"
+                >
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                        <Loader2 className="w-6 h-6 animate-spin text-gray-600" />
+                        <span className="text-lg text-gray-600">Researching and building your lesson...</span>
+                    </div>
+                    <div className="text-sm text-gray-400">
+                        This may take 10-30 seconds
+                    </div>
+                    <div className="mt-6 flex gap-2 justify-center">
+                        {[0, 1, 2, 3, 4].map((i) => (
+                            <motion.div
+                                key={i}
+                                className="w-2 h-2 bg-gray-300 rounded-full"
+                                animate={{ opacity: [0.3, 1, 0.3] }}
+                                transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
+                            />
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         );
     }
 
-    if (error || !result) {
+    if (status === "error" || !result) {
         return (
             <div className="min-h-screen bg-white flex items-center justify-center">
                 <div className="text-center">
-                    <div className="text-red-500 mb-4">{error || "Query not found"}</div>
-                    <Link href="/history" className="text-gray-900 hover:underline">
-                        ← Back to History
-                    </Link>
+                    <div className="text-red-500 mb-4">
+                        Query processing timed out or failed.
+                    </div>
+                    <div className="flex gap-4 justify-center">
+                        <Link href="/" className="text-gray-900 hover:underline">
+                            ← Try again
+                        </Link>
+                        <Link href="/history" className="text-gray-600 hover:underline">
+                            View History
+                        </Link>
+                    </div>
                 </div>
             </div>
         );
@@ -74,11 +127,10 @@ export default function QueryResultPage() {
     return (
         <div className="min-h-screen bg-white">
             <div className="max-w-5xl mx-auto px-6 py-8">
-                {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.6 }}
                     className="mb-8"
                 >
                     <Link
@@ -88,100 +140,55 @@ export default function QueryResultPage() {
                         <ArrowLeft className="w-4 h-4" />
                         Back to History
                     </Link>
-                    <h1 className="text-3xl font-light text-gray-900 mb-2">Your Lesson Plan</h1>
+                    <h1 className="text-3xl font-light text-gray-900 mb-2">Your Lesson</h1>
                     <p className="text-gray-500">
                         {new Date(result.timestamp).toLocaleString()}
                     </p>
                 </motion.div>
 
-                {/* Query */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-6"
-                >
-                    <h2 className="text-lg font-medium text-gray-900 mb-3">Learning Topic</h2>
-                    <div className="bg-gray-900 text-white p-4 rounded-lg">
-                        {result.query}
-                    </div>
-                </motion.div>
-
-                {/* Stats */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-                    className="mb-6"
-                >
-                    <div className="grid grid-cols-3 gap-4">
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Concepts Learned</div>
-                            <div className="text-2xl font-light text-gray-900">{result.entities}</div>
-                        </div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Connections Found</div>
-                            <div className="text-2xl font-light text-gray-900">{result.edges}</div>
-                        </div>
-                        <div className="bg-white border border-gray-200 rounded-lg p-4">
-                            <div className="text-sm text-gray-500 mb-1">Lesson ID</div>
-                            <div className="text-xs font-mono text-gray-600 break-all">{result.id}</div>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* Analysis */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
                     className="mb-8"
                 >
-                    <h2 className="text-lg font-medium text-gray-900 mb-3">The Lesson</h2>
-                    {result.analysis ? (
-                        <div className="bg-white border border-gray-200 rounded-lg p-6">
-                            <div className="prose prose-gray max-w-none">
-                                <ReactMarkdown
-                                    components={{
-                                        h2: ({ children }) => <h2 className="text-xl font-semibold text-gray-900 mt-6 mb-3">{children}</h2>,
-                                        h3: ({ children }) => <h3 className="text-lg font-medium text-gray-800 mt-4 mb-2">{children}</h3>,
-                                        p: ({ children }) => <p className="text-gray-700 mb-4 leading-relaxed">{children}</p>,
-                                        ul: ({ children }) => <ul className="list-disc pl-5 space-y-2 mb-4">{children}</ul>,
-                                        li: ({ children }) => <li className="text-gray-700">{children}</li>,
-                                        strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
-                                    }}
-                                >
-                                    {result.analysis}
-                                </ReactMarkdown>
-                            </div>
-                        </div>
-                    ) : (
-                        <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center text-gray-500">
-                            No lesson content available
-                        </div>
-                    )}
+                    <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">
+                        Your Question
+                    </h2>
+                    <div className="text-xl text-gray-900">{result.query}</div>
                 </motion.div>
 
-                {/* Actions */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex gap-4"
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="mb-8"
                 >
-                    <Link
-                        href={`/query?q=${encodeURIComponent(result.query)}`}
-                        className="px-6 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-2"
-                    >
-                        <RotateCw className="w-4 h-4" />
-                        Restart Lesson
-                    </Link>
-                    <Link
-                        href={`/explore?query_id=${result.id}`}
-                        className="px-6 py-3 bg-white border border-gray-200 hover:bg-gray-50 text-gray-700 rounded-lg text-sm font-medium transition-colors"
-                    >
-                        View This Lesson's Map
-                    </Link>
+                    <div className="flex items-center gap-2 mb-4">
+                        <Network className="w-5 h-5 text-gray-600" />
+                        <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                            Knowledge Graph
+                        </h2>
+                        <span className="text-xs text-gray-400">
+                            ({result.entities} concepts, {result.edges} relationships)
+                        </span>
+                    </div>
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
+                        <GraphView queryId={queryId} height="400px" />
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                    <h2 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">
+                        Lesson Explanation
+                    </h2>
+                    <div className="prose prose-gray max-w-none">
+                        <ReactMarkdown>{result.analysis}</ReactMarkdown>
+                    </div>
                 </motion.div>
             </div>
         </div>
