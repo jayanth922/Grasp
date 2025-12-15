@@ -1,5 +1,5 @@
 # Grasp - AI Educational Tutor
-# Python 3.11+ recommended
+# Python 3.11 required (see runtime.txt)
 
 # Core Framework
 fastapi==0.115.0
@@ -21,17 +21,8 @@ langchain-neo4j==0.1.0
 # Search
 tavily-python==0.3.3
 
-# Data Processing
-numpy==1.26.4
-pandas==2.2.2
-
 # PDF Processing
 pymupdf
 python-multipart
 
-# Evaluation
-ragas
-
-# Observability (optional)
-# arize-phoenix
-# mlflow
+# Note: numpy and pandas removed - not needed for API
