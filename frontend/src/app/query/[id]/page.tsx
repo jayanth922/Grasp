@@ -173,8 +173,8 @@ export default function QueryResultPage() {
                             ({result.entities} concepts, {result.edges} relationships)
                         </span>
                     </div>
-                    <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden">
-                        <GraphView queryId={queryId} height="400px" />
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg overflow-hidden" style={{ height: "400px" }}>
+                        <GraphView queryId={queryId} />
                     </div>
                 </motion.div>
 
