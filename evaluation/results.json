@@ -1,0 +1,194 @@
+{
+  "ragas": {
+    "faithfulness": 0.895,
+    "relevance": 0.96,
+    "contextPrecision": 0.75,
+    "answerCorrectness": 0.74
+  },
+  "metadata": {
+    "timestamp": "2025-12-14T16:34:22.325610",
+    "dataset_size": 20
+  },
+  "details": [
+    {
+      "question": "What is photosynthesis?",
+      "ground_truth": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. It occurs in chloroplasts using chlorophyll, water, and carbon dioxide, producing oxygen as a byproduct.",
+      "response": "## Concept Summary\nPhotosynthesis is the process by which plants, algae, and some bacteria use sunlight, water, and carbon dioxide to create oxygen and energy in the form of sugar.\n\n## The Breakdown\nTo understand photosynthesis, let's break it down step by step. Photosynthesis needs sunlight, water,",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "Explain the water cycle.",
+      "ground_truth": "The water cycle is the continuous movement of water through Earth's systems via evaporation, condensation, precipitation, and collection. Water evaporates from oceans and lakes, forms clouds through condensation, falls as precipitation, and collects in bodies of water or groundwater.",
+      "response": "## Concept Summary\nThe water cycle is the continuous circulation of water in the Earth-atmosphere system, involving the movement of water in three states: solid, liquid, and gas. It's a vital process that sustains life on Earth.\n\n## The Breakdown\nThe water cycle involves several key processes. As yo",
+      "faithfulness": 0.8,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What causes earthquakes?",
+      "ground_truth": "Earthquakes are caused by the sudden release of energy in the Earth's crust, typically due to tectonic plate movements. When plates collide, separate, or slide past each other, stress builds up and is released as seismic waves.",
+      "response": "## Concept Summary\nAn earthquake is a sudden movement along faults within the Earth, caused by the movement of parts of the Earth's crust, which is the outermost layer of the planet.\n\n## The Breakdown\nThe movement of the Earth's crust is led by the movement of tectonic plates. As you can see in the ",
+      "faithfulness": 0.9,
+      "relevancy": 0.9,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "How does gravity work?",
+      "ground_truth": "Gravity is a fundamental force that attracts objects with mass toward each other. According to Newton, gravitational force is proportional to the masses and inversely proportional to the square of the distance between them. Einstein described it as the curvature of spacetime caused by mass.",
+      "response": "## Concept Summary\nGravity is an invisible force that pulls objects towards each other. It's a force of attraction between two objects, and it's what keeps us and everything else on Earth from floating off into space.\n\n## The Breakdown\nThink of gravity like a strong, invisible string that connects e",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.6,
+      "answer_correctness": 0.7
+    },
+    {
+      "question": "What is DNA and its function?",
+      "ground_truth": "DNA (deoxyribonucleic acid) is a molecule that carries genetic instructions for all living organisms. It consists of a double helix structure with nucleotide bases (adenine, thymine, guanine, cytosine) that encode genetic information for protein synthesis and heredity.",
+      "response": "## Concept Summary\nDNA, or deoxyribonucleic acid, is the molecule that carries genetic instructions for the development and function of living organisms. It's like an instruction manual that tells cells what to do, how to grow, and what traits to inherit.\n\n## The Breakdown\nDNA explains genetic instr",
+      "faithfulness": 0.9,
+      "relevancy": 0.9,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "Explain Newton's three laws of motion.",
+      "ground_truth": "Newton's laws: 1) An object at rest stays at rest unless acted upon by a force (inertia). 2) Force equals mass times acceleration (F=ma). 3) For every action, there is an equal and opposite reaction.",
+      "response": "## Concept Summary\nNewton's three laws of motion are fundamental principles in physics that describe how objects move and respond to forces. They were introduced by Sir Isaac Newton and form the basis of our understanding of the motion of objects, from small objects on Earth to large celestial bodie",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.2,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is the difference between mitosis and meiosis?",
+      "ground_truth": "Mitosis produces two identical diploid daughter cells for growth and repair. Meiosis produces four genetically different haploid cells (gametes) for sexual reproduction. Mitosis has one division; meiosis has two divisions with crossing over.",
+      "response": "## Concept Summary\nCell division is a process by which a cell splits into two or more daughter cells. There are two main types of cell division: mitosis and meiosis. Mitosis is the type of cell division that results in two daughter cells with the same number and kind of chromosomes as the parent cel",
+      "faithfulness": 0.9,
+      "relevancy": 0.8,
+      "context_precision": 0.8,
+      "answer_correctness": 0.5
+    },
+    {
+      "question": "How do vaccines work?",
+      "ground_truth": "Vaccines work by introducing a weakened, killed, or partial pathogen to stimulate the immune system to produce antibodies and memory cells. This prepares the body to recognize and fight the actual pathogen if exposed later.",
+      "response": "## Concept Summary\nVaccines work by helping your body's immune system recognize and fight against specific diseases, providing protection against those diseases.\n\n## The Breakdown\nTo understand how vaccines work, let's start with the immune system. Think of your immune system like a defense army tha",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is the greenhouse effect?",
+      "ground_truth": "The greenhouse effect is Earth's natural warming process where atmospheric gases (CO2, methane, water vapor) trap heat from the sun. While essential for life, enhanced greenhouse effect from human emissions causes global warming.",
+      "response": "## Concept Summary\nThe greenhouse effect is a process where certain gases in Earth's atmosphere, known as greenhouse gases, trap heat from the sun, keeping the Earth's surface warm.\n\n## The Breakdown\nThe greenhouse effect works by allowing sunlight to enter the Earth's atmosphere and warm the surfac",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "Explain the concept of evolution.",
+      "ground_truth": "Evolution is the process of biological change over generations through natural selection. Organisms with advantageous traits are more likely to survive and reproduce, passing those traits to offspring. Over time, this leads to species adaptation and diversity.",
+      "response": "## Concept Summary\nEvolution is the process of change in the characteristics of organisms or populations over many generations, resulting in descent with modification. It involves the origin and spread of new traits, alleles, or genetic variations, leading to changes in the proportions of individual",
+      "faithfulness": 1.0,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is the structure of an atom?",
+      "ground_truth": "An atom consists of a nucleus containing positively charged protons and neutral neutrons, surrounded by negatively charged electrons in orbitals. The number of protons determines the element; electrons determine chemical properties.",
+      "response": "## Concept Summary\nThe structure of an atom is made up of a small, heavy nucleus at its center, which contains protons and neutrons, surrounded by a cloud of electrons. Think of it like a tiny solar system, where the nucleus is the sun and the electrons are the planets orbiting around it.\n\n## The Br",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "How does the human heart work?",
+      "ground_truth": "The heart pumps blood through the circulatory system using four chambers. The right side receives deoxygenated blood and pumps it to the lungs. The left side receives oxygenated blood from the lungs and pumps it to the body.",
+      "response": "## Concept Summary\nThe human heart is a complex organ that pumps blood throughout the body, and its effective functioning relies on the precise coordination of millions of cell contractions.\n\n## The Breakdown\nThe heart is located in the thoracic cavity, surrounded by a fibrous sac called the pericar",
+      "faithfulness": 0.8,
+      "relevancy": 1.0,
+      "context_precision": 0.6,
+      "answer_correctness": 0.0
+    },
+    {
+      "question": "What is machine learning?",
+      "ground_truth": "Machine learning is a subset of artificial intelligence where computers learn patterns from data without explicit programming. Algorithms improve their performance through experience, using techniques like supervised, unsupervised, and reinforcement learning.",
+      "response": "## Concept Summary\nMachine learning is a subfield of Artificial Intelligence that focuses on developing models and algorithms, allowing computers to learn from data without being explicitly programmed for every task. Think of machine learning like teaching a child - you show them examples, and they ",
+      "faithfulness": 0.9,
+      "relevancy": 0.9,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "Explain the Pythagorean theorem.",
+      "ground_truth": "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a\u00b2 + b\u00b2 = c\u00b2). It's fundamental for calculating distances and has applications in geometry and physics.",
+      "response": "## Concept Summary\nThe Pythagorean theorem is a fundamental concept in mathematics that describes the relationship between the lengths of the sides of a right triangle. It's named after the ancient Greek mathematician Pythagoras, who is credited with its discovery.\n\n## The Breakdown\nThe Pythagorean ",
+      "faithfulness": 1.0,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is the immune system?",
+      "ground_truth": "The immune system is the body's defense network against pathogens. It includes physical barriers (skin), white blood cells, antibodies, and lymphatic organs. It distinguishes self from non-self and can remember previous infections.",
+      "response": "## Concept Summary\nThe immune system is a network of cells and organs that work together to protect the body from infection, cancer, and other conditions. Think of it like a defense system that keeps you safe from harm.\n\n## The Breakdown\nThe immune system is made up of many different parts, includin",
+      "faithfulness": 0.8,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "How do neurons transmit signals?",
+      "ground_truth": "Neurons transmit signals through electrical impulses (action potentials) along the axon and chemical neurotransmitters across synapses. When stimulated, ions flow across the membrane, creating an electrical signal that triggers neurotransmitter release.",
+      "response": "## Concept Summary\nA neuron transmits signals through a process called an action potential, which allows it to send information over long distances. This process involves the neuron's different parts, including dendrites, cell body, axon, and axon terminal, working together to receive, process, and ",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is the periodic table?",
+      "ground_truth": "The periodic table organizes chemical elements by atomic number, electron configuration, and recurring chemical properties. Elements are arranged in periods (rows) and groups (columns), allowing prediction of element behavior and relationships.",
+      "response": "## Concept Summary\nThe Periodic Table is a tabular array of the chemical elements organized by atomic number, which helps us understand the properties and relationships between different elements.\n\n## The Breakdown\nThe Periodic Table was developed by Dmitri I. Mendeleev, who arranged the elements in",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "Explain the concept of supply and demand.",
+      "ground_truth": "Supply and demand is an economic model describing price determination. Demand is how much buyers want at various prices; supply is how much sellers offer. Equilibrium occurs where supply meets demand, determining market price.",
+      "response": "## Concept Summary\nThe concept of supply and demand refers to the relationship between the quantity of a product that producers want to sell and the quantity that consumers want to buy. This relationship is the foundation of how prices are determined in a market.\n\n## The Breakdown\nAs you can see in ",
+      "faithfulness": 0.9,
+      "relevancy": 0.8,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "What is climate change?",
+      "ground_truth": "Climate change refers to long-term shifts in global temperatures and weather patterns. While natural, current changes are primarily driven by human activities, especially burning fossil fuels, leading to rising temperatures, extreme weather, and sea level rise.",
+      "response": "## Concept Summary\nClimate change refers to the long-term change in the average weather patterns that have come to define Earth's local, regional, and global climates. It's a broad term that encompasses various changes in the Earth's climate, including global warming.\n\n## The Breakdown\nClimate chang",
+      "faithfulness": 0.9,
+      "relevancy": 1.0,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    },
+    {
+      "question": "How does electricity work?",
+      "ground_truth": "Electricity is the flow of electrons through a conductor. When voltage (electrical pressure) is applied, electrons move from negative to positive, creating current. Resistance affects flow rate. Power equals voltage times current (P=VI).",
+      "response": "## Concept Summary\nElectricity is the flow of electrons through a conductor, which is made possible by the presence of an electric field.\n\n## The Breakdown\nElectricity explains the concept of an electric field, which is crucial for the flow of electrons through a conductor. Think of it like water fl",
+      "faithfulness": 0.9,
+      "relevancy": 0.9,
+      "context_precision": 0.8,
+      "answer_correctness": 0.8
+    }
+  ]
+}

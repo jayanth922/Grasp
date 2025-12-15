@@ -1,0 +1,82 @@
+[
+    {
+        "question": "What is photosynthesis?",
+        "ground_truth": "Photosynthesis is the process by which plants, algae, and some bacteria convert light energy into chemical energy stored in glucose. It occurs in chloroplasts using chlorophyll, water, and carbon dioxide, producing oxygen as a byproduct."
+    },
+    {
+        "question": "Explain the water cycle.",
+        "ground_truth": "The water cycle is the continuous movement of water through Earth's systems via evaporation, condensation, precipitation, and collection. Water evaporates from oceans and lakes, forms clouds through condensation, falls as precipitation, and collects in bodies of water or groundwater."
+    },
+    {
+        "question": "What causes earthquakes?",
+        "ground_truth": "Earthquakes are caused by the sudden release of energy in the Earth's crust, typically due to tectonic plate movements. When plates collide, separate, or slide past each other, stress builds up and is released as seismic waves."
+    },
+    {
+        "question": "How does gravity work?",
+        "ground_truth": "Gravity is a fundamental force that attracts objects with mass toward each other. According to Newton, gravitational force is proportional to the masses and inversely proportional to the square of the distance between them. Einstein described it as the curvature of spacetime caused by mass."
+    },
+    {
+        "question": "What is DNA and its function?",
+        "ground_truth": "DNA (deoxyribonucleic acid) is a molecule that carries genetic instructions for all living organisms. It consists of a double helix structure with nucleotide bases (adenine, thymine, guanine, cytosine) that encode genetic information for protein synthesis and heredity."
+    },
+    {
+        "question": "Explain Newton's three laws of motion.",
+        "ground_truth": "Newton's laws: 1) An object at rest stays at rest unless acted upon by a force (inertia). 2) Force equals mass times acceleration (F=ma). 3) For every action, there is an equal and opposite reaction."
+    },
+    {
+        "question": "What is the difference between mitosis and meiosis?",
+        "ground_truth": "Mitosis produces two identical diploid daughter cells for growth and repair. Meiosis produces four genetically different haploid cells (gametes) for sexual reproduction. Mitosis has one division; meiosis has two divisions with crossing over."
+    },
+    {
+        "question": "How do vaccines work?",
+        "ground_truth": "Vaccines work by introducing a weakened, killed, or partial pathogen to stimulate the immune system to produce antibodies and memory cells. This prepares the body to recognize and fight the actual pathogen if exposed later."
+    },
+    {
+        "question": "What is the greenhouse effect?",
+        "ground_truth": "The greenhouse effect is Earth's natural warming process where atmospheric gases (CO2, methane, water vapor) trap heat from the sun. While essential for life, enhanced greenhouse effect from human emissions causes global warming."
+    },
+    {
+        "question": "Explain the concept of evolution.",
+        "ground_truth": "Evolution is the process of biological change over generations through natural selection. Organisms with advantageous traits are more likely to survive and reproduce, passing those traits to offspring. Over time, this leads to species adaptation and diversity."
+    },
+    {
+        "question": "What is the structure of an atom?",
+        "ground_truth": "An atom consists of a nucleus containing positively charged protons and neutral neutrons, surrounded by negatively charged electrons in orbitals. The number of protons determines the element; electrons determine chemical properties."
+    },
+    {
+        "question": "How does the human heart work?",
+        "ground_truth": "The heart pumps blood through the circulatory system using four chambers. The right side receives deoxygenated blood and pumps it to the lungs. The left side receives oxygenated blood from the lungs and pumps it to the body."
+    },
+    {
+        "question": "What is machine learning?",
+        "ground_truth": "Machine learning is a subset of artificial intelligence where computers learn patterns from data without explicit programming. Algorithms improve their performance through experience, using techniques like supervised, unsupervised, and reinforcement learning."
+    },
+    {
+        "question": "Explain the Pythagorean theorem.",
+        "ground_truth": "The Pythagorean theorem states that in a right triangle, the square of the hypotenuse equals the sum of squares of the other two sides (a² + b² = c²). It's fundamental for calculating distances and has applications in geometry and physics."
+    },
+    {
+        "question": "What is the immune system?",
+        "ground_truth": "The immune system is the body's defense network against pathogens. It includes physical barriers (skin), white blood cells, antibodies, and lymphatic organs. It distinguishes self from non-self and can remember previous infections."
+    },
+    {
+        "question": "How do neurons transmit signals?",
+        "ground_truth": "Neurons transmit signals through electrical impulses (action potentials) along the axon and chemical neurotransmitters across synapses. When stimulated, ions flow across the membrane, creating an electrical signal that triggers neurotransmitter release."
+    },
+    {
+        "question": "What is the periodic table?",
+        "ground_truth": "The periodic table organizes chemical elements by atomic number, electron configuration, and recurring chemical properties. Elements are arranged in periods (rows) and groups (columns), allowing prediction of element behavior and relationships."
+    },
+    {
+        "question": "Explain the concept of supply and demand.",
+        "ground_truth": "Supply and demand is an economic model describing price determination. Demand is how much buyers want at various prices; supply is how much sellers offer. Equilibrium occurs where supply meets demand, determining market price."
+    },
+    {
+        "question": "What is climate change?",
+        "ground_truth": "Climate change refers to long-term shifts in global temperatures and weather patterns. While natural, current changes are primarily driven by human activities, especially burning fossil fuels, leading to rising temperatures, extreme weather, and sea level rise."
+    },
+    {
+        "question": "How does electricity work?",
+        "ground_truth": "Electricity is the flow of electrons through a conductor. When voltage (electrical pressure) is applied, electrons move from negative to positive, creating current. Resistance affects flow rate. Power equals voltage times current (P=VI)."
+    }
+]
